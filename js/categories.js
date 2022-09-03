@@ -6,15 +6,15 @@ const loadCategories = async () => {
 }
 const displayCategories = categories => {
     // console.log(categories);
-    const categoriesContainer = document.getElementById('categories-container');
+    const categoriesContainer = document.getElementById('loaduser');
     categories.forEach(category => {
-        const categoryDiv = document.createElement('div');
-        categoryDiv.classList.add('col');
-        categoryDiv.innerHTML = `
+        const categoryLi = document.createElement('li');
+        categoryLi.classList.add("mx-auto");
+        categoryLi.innerHTML = `
             <div onclick="loadNewsInCategory('${category.category_id}')" class="col fs-6 fw-semibold px-2 text-secondary"><p>${category.category_name}</p></div>
         
         `;
-        categoriesContainer.appendChild(categoryDiv);
+        categoriesContainer.appendChild(categoryLi);
     })
 }
 
