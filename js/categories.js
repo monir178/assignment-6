@@ -27,24 +27,27 @@ const loadNewsInCategory = async (id) => {
 };
 
 
-const displaynewsInCategory = (news) => {
-    console.log(news);
+const displaynewsInCategory = (user) => {
+    console.log(user);
     const newsContainer = document.getElementById("news-container");
     newsContainer.textContent = '';
-    news.forEach(singleNews => {
+    user.forEach(singleUser => {
         const newsDiv = document.createElement("div");
         newsDiv.classList.add("card");
         newsDiv.innerHTML = `
         <div class="card mb-3">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="${singleNews.image_url}" class="img-fluid rounded-start" alt="...">
+        <div class="row g-2">
+          <div class="col-md-2">
+            <img src="${singleUser.thumbnail_url}" class="img-fluid rounded-start" alt="...">
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <h5 class="card-title">${singleUser.author.name}</h5>
+              <p class="card-text text-secondary">${singleUser.title}</p>
+              <p class="card-text"><small class="text-muted">${singleUser.rating.badge} ${singleUser.rating.number}</small></p>
+              <p>Total view: ${singleUser.total_view
+            }</p>
+             
             </div>
           </div>
         </div>
