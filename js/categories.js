@@ -1,8 +1,15 @@
 const loadCategories = async () => {
-    const url = `https://openapi.programming-hero.com/api/news/categories`;
-    const res = await fetch(url);
-    const data = await res.json();
-    displayCategories(data.data.news_category);
+    try {
+        const url = `https://openapi.programming-hero.com/api/news/categories`;
+        const res = await fetch(url);
+        const data = await res.json();
+        displayCategories(data.data.news_category);
+
+    }
+    catch (error) {
+        console.error(error);
+    }
+
 }
 const displayCategories = categories => {
     // console.log(categories);
@@ -27,13 +34,13 @@ const loadNewsInCategory = async (id) => {
 };
 
 
-const displaynewsInCategory = (user) => {
-    console.log(user);
+const displaynewsInCategory = (users) => {
+    console.log(users);
     const newsContainer = document.getElementById("news-container");
     newsContainer.textContent = '';
-    user.forEach(singleUser => {
+    users.forEach(singleUser => {
         const newsDiv = document.createElement("div");
-        newsDiv.classList.add("card");
+        // newsDiv.classList.add("card");
         newsDiv.innerHTML = `
         <div class="card mb-3">
         <div class="row g-2">
@@ -42,11 +49,13 @@ const displaynewsInCategory = (user) => {
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title">${singleUser.author.name}</h5>
-              <p class="card-text text-secondary">${singleUser.title}</p>
-              <p class="card-text"><small class="text-muted">${singleUser.rating.badge} ${singleUser.rating.number}</small></p>
+              <h5 class="card-title">${singleUser.title}</h5>
+              <p class="card-text text-secondary">${singleUser.details.slice(0, 150)} </p> 
+            
               <p>Total view: ${singleUser.total_view
             }</p>
+            
+            <img src="${singleUser.author.img}" class="img-responsive img-rounded rounded-lg" style="max-height: 40px; max-width: 50px; border-radius: 50px">
              
             </div>
           </div>
@@ -62,4 +71,4 @@ const displaynewsInCategory = (user) => {
 
 
 loadCategories();
-// loadNewsInCategory();
+loadNewsInCategory();
