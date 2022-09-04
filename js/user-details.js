@@ -1,8 +1,13 @@
 const cardDetails = async (id) => {
-    const url = `https://openapi.programming-hero.com/api/news/${id}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    displayDetailsByModal(data.data[0]);
+    try {
+        const url = `https://openapi.programming-hero.com/api/news/${id}`;
+        const res = await fetch(url);
+        const data = await res.json();
+        displayDetailsByModal(data.data[0]);
+    }
+    catch (error) {
+        console.log(error);
+    }
 }
 const displayDetailsByModal = (auth) => {
     // console.log(author);
@@ -10,5 +15,8 @@ const displayDetailsByModal = (auth) => {
     cardModalTitle.innerText = auth.title;
     const writerDetails = document.getElementById('writer-name');
     writerDetails.innerText = auth.details;
+
+    let modalAuthor = document.getElementById('modal-author');
+    modalAuthor.innerText = auth.author.name ? auth.author.name : 'No Data found';
 }
 cardDetails();

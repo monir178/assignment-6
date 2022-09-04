@@ -1,9 +1,14 @@
 // loadNewsInCategory Function
 const loadNewsInCategory = async (id) => {
-    const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    displaynewsInCategory(data.data);
+    try {
+        const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
+        const res = await fetch(url);
+        const data = await res.json();
+        displaynewsInCategory(data.data);
+    }
+    catch (error) {
+        console.log(error);
+    }
 };
 
 
