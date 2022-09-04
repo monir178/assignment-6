@@ -39,7 +39,7 @@ const displaynewsInCategory = (users) => {
 
     users.forEach(singleUser => {
         const newsDiv = document.createElement("div");
-        // newsDiv.classList.add("card");
+
         newsDiv.innerHTML = `
         <div onclick="cardDetails('${singleUser._id}')" class="card mb-3" data-bs-toggle="modal" data-bs-target="#cardModal">
         <div class="row g-2">
@@ -54,7 +54,16 @@ const displaynewsInCategory = (users) => {
               <p>Total view: ${singleUser.total_view
             }</p>
             
-            <img src="${singleUser.author.img}" class="img-responsive img-rounded rounded-lg" style="max-height: 40px; max-width: 50px; border-radius: 50px">
+        <div  class = "d-flex">
+        <div>
+        <img src="${singleUser.author.img}" class="img-responsive img-rounded rounded-lg" style="max-height: 50px; max-width: 50px; border-radius: 50px"> 
+        
+        </div>
+      <div class = "ms-2 text-secondary">
+      <p class = "m-0 p-0">${singleUser.author.name}</p>
+      <p> ${singleUser.author.published_date}</p>
+      </div>
+        </div>
              
             </div>
           </div>

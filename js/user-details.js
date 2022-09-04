@@ -10,7 +10,7 @@ const cardDetails = async (id) => {
     }
 }
 const displayDetailsByModal = (auth) => {
-    // console.log(author);
+
     const cardModalTitle = document.getElementById('cardModalLabel');
     cardModalTitle.innerText = auth.title;
     const writerDetails = document.getElementById('writer-name');
