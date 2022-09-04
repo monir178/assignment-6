@@ -16,6 +16,27 @@ const displaynewsInCategory = (users) => {
     // console.log(users);
     const newsContainer = document.getElementById("news-container");
     newsContainer.textContent = '';
+
+    // not found alert
+    const message = document.getElementById('not-found');
+
+    if (users.length === 0) {
+        message.classList.remove('d-none')
+    }
+    else {
+        message.classList.add('d-none')
+    }
+    //message found
+    const newMessage = document.getElementById('found');
+    newMessage.innerText = users.length + ' ' + 'Items found in this category';
+    if (users.length > 0) {
+        newMessage.classList.remove('d-none');
+    }
+    else {
+        newMessage.classList.add('d-none')
+    }
+
+
     users.forEach(singleUser => {
         const newsDiv = document.createElement("div");
         // newsDiv.classList.add("card");
@@ -44,5 +65,10 @@ const displaynewsInCategory = (users) => {
     });
 
 
+
+
 };
+
+
+
 loadNewsInCategory();
