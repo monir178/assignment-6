@@ -62,12 +62,24 @@ const displaynewsInCategory = (users) => {
       </div> `;
 
         newsContainer.appendChild(newsDiv);
+
     });
 
-
-
+    toggleLoader(false);
 
 };
+
+// loader
+const toggleLoader = isLoading => {
+    const loader = document.getElementById('loading')
+    if (isLoading) {
+        loader.classList.remove('d-none');
+    }
+    else {
+        loader.classList.add('d-none');
+    }
+}
+
 
 
 

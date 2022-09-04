@@ -44,7 +44,7 @@
             <div>
                 <nav class=" navbar-expand-lg bg-light">
                     <div>
-                        <ul id="loaduser" class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <ul onclick="toggleLoader(true)" id="loaduser" class="navbar-nav me-auto mb-2 mb-lg-0">
                         </ul>
                     </div>
                 </nav>
@@ -55,13 +55,22 @@
             <!-- Categories End -->
 
         </section>
-        <!-- Item Numbers -->
+        <!-- Item Number -->
         <section class="container">
             <div id="not-found" class="display-6 bg-secondary bg-opacity-25 fw-bold text-warning p-2 d-none">
                 No Data Available !!!
             </div>
             <div id="found" class="display-6 bg-secondary bg-opacity-25 fw-bold text-info  p-2 d-none">
 
+            </div>
+        </section>
+
+        <!-- loader -->
+        <section>
+            <div id="loading" class="d-flex justify-content-center d-none">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
             </div>
         </section>
 
