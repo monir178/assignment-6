@@ -51,7 +51,7 @@ const displaynewsInCategory = (users) => {
               <h5 class="card-title">${singleUser.title}</h5>
               <p class="card-text text-secondary">${singleUser.details.slice(0, 150)} </p> 
             
-              <p>Total view: ${singleUser.total_view
+              <p class = "text-info fw-semibold">Total view: ${singleUser.total_view
             }</p>
             
         <div  class = "d-flex">
