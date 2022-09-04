@@ -17,6 +17,6 @@ const displayDetailsByModal = (auth) => {
     writerDetails.innerText = auth.details;
 
     let modalAuthor = document.getElementById('modal-author');
-    modalAuthor.innerText = auth.author.name ? auth.author.name : 'No Data found';
+    modalAuthor.innerText = auth.author.name ? auth.author.name : 'No data found here';
 }
 cardDetails();

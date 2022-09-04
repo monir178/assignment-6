@@ -27,13 +27,13 @@ const displaynewsInCategory = (users) => {
         message.classList.add('d-none')
     }
     //message found
-    const newMessage = document.getElementById('found');
-    newMessage.innerText = users.length + ' ' + 'Items found in this category';
+    const foundMessage = document.getElementById('found');
+    foundMessage.innerText = users.length + ' ' + 'Items available in this category';
     if (users.length > 0) {
-        newMessage.classList.remove('d-none');
+        foundMessage.classList.remove('d-none');
     }
     else {
-        newMessage.classList.add('d-none')
+        foundMessage.classList.add('d-none')
     }
 
 
